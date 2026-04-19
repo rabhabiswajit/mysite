@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Premium Biswajit Site</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: radial-gradient(circle at top, #0f0c29, #302b63, #24243e);
+    color: white;
+    overflow: hidden;
+}
+
+/* Neon glow */
+.glow {
+    text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+}
+
+/* Glass card */
+.card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    max-width: 400px;
+    padding: 25px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 30px rgba(255,0,255,0.3);
+    text-align: center;
+    animation: fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn {
+    from {opacity:0; transform: translate(-50%, -60%);}
+    to {opacity:1; transform: translate(-50%, -50%);}
+}
+
+/* Button */
+.btn {
+    margin-top: 20px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(45deg, #ff00cc, #3333ff);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 15px #ff00cc;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+/* Settings */
+#settings {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+#menu {
+    display: none;
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    background: rgba(0,0,0,0.9);
+    padding: 15px;
+    border-radius: 15px;
+}
+
+/* Hide second page */
+#page2 {
+    display: none;
+}
+</style>
+</head>
+
+<body onclick="playMusic()">
+
+<audio id="music" src="music.mp3"></audio>
+
+<div id="settings" onclick="toggleMenu()">⚙️</div>
+
+<div id="menu">
+    <p>📞 Contact Owner</p>
+    <p>📝 Signup</p>
+    <p>🌐 This Website</p>
+</div>
+
+<!-- PAGE 1 -->
+<div class="card" id="page1">
+    <h2 class="glow">Welcome</h2>
+
+    <p style="margin-top:15px">
+    Hello! I'm Biswajit from Assam.  
+    This site tells about me.  
+
+    <br><br>
+
+    नमस्ते! मैं बिस्वजीत हूँ।  
+    यह मेरी वेबसाइट है।
+    </p>
+
+    <button class="btn" onclick="nextPage()">Next ➜</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="card" id="page2">
+    <h2 class="glow">My Feelings</h2>
+
+    <p style="margin-top:15px">
+    Life hits hard sometimes...  
+    But I never give up 💜
+    </p>
+
+    <button class="btn" onclick="reply()">Reply 💬</button>
+</div>
+
+<script>
+function playMusic() {
+    document.getElementById("music").play();
+}
+
+function toggleMenu() {
+    let m = document.getElementById("menu");
+    m.style.display = (m.style.display === "block") ? "none" : "block";
+}
+
+function nextPage() {
+    document.getElementById("page1").style.display = "none";
+    document.getElementById("page2").style.display = "block";
+}
+
+function reply() {
+
+    // Instagram open
+    window.open("https://instagram.com/rabha_bisswajit", "_blank");
+
+    // Image download
+    let link = document.createElement("a");
+    link.href = "image_save.png";
+    link.download = "biswajit.png";
+    link.click();
+}
+</script>
+
+</body>
+</html>
